@@ -3,7 +3,7 @@ test_that("generics methods can be reexported and extended", {
   expect_snapshot(cat(methods_rd("tidy")))
 })
 
-test_that("multiple packages have multiple headers", {
+test_that("methods from multiple packages", {
   local_load_all("testMultiMethod")
   local_load_all("testMultiPackage")
   expect_snapshot(cat(methods_rd("multi_method")))
@@ -22,19 +22,9 @@ test_that("S4 and S3 packages can intermingle", {
   expect_snapshot(cat(methods_rd("multi_method")))
 })
 
-test_that("multiple methods but same rdname are comma separated", {
+test_that("multiple methods with same rdname", {
   local_load_all("testSameRd")
   expect_snapshot(cat(methods_rd("same_rd_name")))
-})
-
-test_that("single method is correctly itemized", {
-  local_load_all("testSingleMethod")
-  expect_snapshot(cat(methods_rd("single_method")))
-})
-
-test_that("multiple methods are correctly itemized", {
-  local_load_all("testMultiMethod")
-  expect_snapshot(cat(methods_rd("multi_method")))
 })
 
 test_that("no methods case returns default output", {

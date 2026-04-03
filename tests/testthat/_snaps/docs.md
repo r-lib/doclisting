@@ -4,27 +4,20 @@
       cat(methods_rd("tidy"))
     Output
       See the following help topics for more details about individual methods:
-      
-      \code{testGenericsExtension}
       \itemize{
-      \item \code{\link[testGenericsExtension]{tidy-special}}: \code{special_method}
+      \item \code{\link[testGenericsExtension:tidy-special]{special_method}} (\pkg{testGenericsExtension})
       }
 
-# multiple packages have multiple headers
+# methods from multiple packages
 
     Code
       cat(methods_rd("multi_method"))
     Output
       See the following help topics for more details about individual methods:
-      
-      \code{testMultiMethod}
       \itemize{
-      \item \code{\link[testMultiMethod]{multi-method-2}}: \code{default}
-      \item \code{\link[testMultiMethod]{multi-method-3}}: \code{data.frame}
-      }
-      \code{testMultiPackage}
-      \itemize{
-      \item \code{\link[testMultiPackage]{multi-method-4}}: \code{matrix}
+      \item \code{\link[testMultiMethod:multi-method-3]{data.frame}} (\pkg{testMultiMethod})
+      \item \code{\link[testMultiMethod:multi-method-2]{default}} (\pkg{testMultiMethod})
+      \item \code{\link[testMultiPackage:multi-method-4]{matrix}} (\pkg{testMultiPackage})
       }
 
 # S4 bullets print with no issues
@@ -33,10 +26,10 @@
       cat(methods_rd("multi_method"))
     Output
       See the following help topics for more details about individual methods:
-      
-      \code{testS4Docs}
       \itemize{
-      \item \code{\link[testS4Docs]{multi_method}}: \code{ANY,ANY}, \code{numeric,ANY}, \code{numeric,integer}
+      \item \code{\link[testS4Docs:multi_method]{ANY,ANY}} (\pkg{testS4Docs})
+      \item \code{\link[testS4Docs:multi_method]{numeric,ANY}} (\pkg{testS4Docs})
+      \item \code{\link[testS4Docs:multi_method]{numeric,integer}} (\pkg{testS4Docs})
       }
 
 # S4 and S3 packages can intermingle
@@ -45,51 +38,22 @@
       cat(methods_rd("multi_method"))
     Output
       See the following help topics for more details about individual methods:
-      
-      \code{testMultiMethod}
       \itemize{
-      \item \code{\link[testMultiMethod]{multi-method-2}}: \code{default}
-      \item \code{\link[testMultiMethod]{multi-method-3}}: \code{data.frame}
-      }
-      \code{testS4Docs}
-      \itemize{
-      \item \code{\link[testS4Docs]{multi_method}}: \code{ANY,ANY}, \code{numeric,ANY}, \code{numeric,integer}
+      \item \code{\link[testS4Docs:multi_method]{ANY,ANY}} (\pkg{testS4Docs})
+      \item \code{\link[testS4Docs:multi_method]{numeric,ANY}} (\pkg{testS4Docs})
+      \item \code{\link[testS4Docs:multi_method]{numeric,integer}} (\pkg{testS4Docs})
+      \item \code{\link[testMultiMethod:multi-method-3]{data.frame}} (\pkg{testMultiMethod})
+      \item \code{\link[testMultiMethod:multi-method-2]{default}} (\pkg{testMultiMethod})
       }
 
-# multiple methods but same rdname are comma separated
+# multiple methods with same rdname
 
     Code
       cat(methods_rd("same_rd_name"))
     Output
       See the following help topics for more details about individual methods:
-      
-      \code{testSameRd}
       \itemize{
-      \item \code{\link[testSameRd]{same_rd_name-2}}: \code{data.frame}, \code{default}
-      }
-
-# single method is correctly itemized
-
-    Code
-      cat(methods_rd("single_method"))
-    Output
-      See the following help topics for more details about individual methods:
-      
-      \code{testSingleMethod}
-      \itemize{
-      \item \code{\link[testSingleMethod]{single-method-2}}: \code{default}
-      }
-
-# multiple methods are correctly itemized
-
-    Code
-      cat(methods_rd("multi_method"))
-    Output
-      See the following help topics for more details about individual methods:
-      
-      \code{testMultiMethod}
-      \itemize{
-      \item \code{\link[testMultiMethod]{multi-method-2}}: \code{default}
-      \item \code{\link[testMultiMethod]{multi-method-3}}: \code{data.frame}
+      \item \code{\link[testSameRd:same_rd_name-2]{data.frame}} (\pkg{testSameRd})
+      \item \code{\link[testSameRd:same_rd_name-2]{default}} (\pkg{testSameRd})
       }
 

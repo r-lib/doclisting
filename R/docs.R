@@ -35,56 +35,33 @@ methods_rd <- function(x) {
     return("No methods found in currently loaded packages.")
   }
 
-  methods_by_package <- split(methods, methods$package)
+  # Sort alphabetically by method name
+  methods <- methods[order(methods$method), , drop = FALSE]
 
-  topics_by_package <- lapply(methods_by_package, function(x) {
-    split(x, paste(x$topic, x$package, sep = "."))
-  })
+  bullet_vec <- paste0(
+    "\\item \\code{\\link[",
+    methods$package,
+    ":",
+    methods$topic,
+    "]{",
+    methods$class,
+    "}} (\\pkg{",
+    methods$package,
+    "})"
+  )
 
-  make_bullets <- function(topics) {
-    bullet_vec <- vapply(
-      X = topics,
-      FUN = function(x) {
-        link <- paste0(
-          "\\code{",
-          "\\link[", x$package[[1]], "]",
-          "{", x$topic[[1]], "}",
-          "}"
-        )
-        classes <- paste0("\\code{", x$class, "}", collapse = ", ")
-        paste0("\\item ", link, ": ", classes)
-      },
-      FUN.VALUE = character(1),
-      USE.NAMES = FALSE
-    )
-
-    paste0(bullet_vec, collapse = "\n")
-  }
-
-  make_header <- function(pkg) {
-    paste0("\\code{", pkg, "}")
-  }
-
-  bullets <- lapply(topics_by_package, make_bullets)
-  headers <- lapply(names(topics_by_package), make_header)
+  bullets <- paste0(bullet_vec, collapse = "\n")
 
   help_msg <- paste0(
     "See the following help topics for more details about individual methods:\n"
   )
 
   paste0(
-    c(help_msg,
-      paste(
-        headers,
-        "\\itemize{",
-        bullets,
-        "}",
-        sep = "\n"
-      )
-    ),
-    collapse = "\n"
+    help_msg,
+    "\\itemize{\n",
+    bullets,
+    "\n}"
   )
-
 }
 
 last <- function(x, n = 0) {
@@ -96,10 +73,10 @@ last <- function(x, n = 0) {
 }
 
 help_path <- function(x, package) {
-
   help <- mapply(locate_help_doc, x, package, SIMPLIFY = FALSE)
 
-  vapply(help,
+  vapply(
+    help,
     function(x) if (length(x) == 0) NA_character_ else as.character(x),
     FUN.VALUE = character(1)
   )
@@ -131,18 +108,12 @@ as.character.dev_topic <- function(x, ...) {
 }
 
 lookup_package <- function(generic, class, is_s4) {
-
   lookup_single_package <- function(generic, class, is_s4) {
-
     if (is_s4) {
-
       class <- strsplit(class, ",")[[1]]
       fn <- methods::getMethod(generic, class, optional = TRUE)
-
     } else {
-
       fn <- utils::getS3method(generic, class, optional = TRUE)
-
     }
 
     # Not found
