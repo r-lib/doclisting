@@ -30,7 +30,7 @@ test_that("methods_find finds methods across packages", {
 })
 
 test_that("methods_find returns empty result for generic with no methods", {
-  result <- methods_find("methods_rd")
+  result <- methods_find("methods_list")
   expect_equal(nrow(result), 0)
 })
 

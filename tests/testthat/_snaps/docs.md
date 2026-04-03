@@ -1,7 +1,7 @@
 # generics methods can be reexported and extended
 
     Code
-      cat(methods_rd("tidy"))
+      cat(methods_list("tidy"))
     Output
       \itemize{
       \item \code{\link[testGenericsExtension:tidy-special]{special_method}} (\pkg{testGenericsExtension})
@@ -10,7 +10,7 @@
 # methods from multiple packages
 
     Code
-      cat(methods_rd("multi_method"))
+      cat(methods_list("multi_method"))
     Output
       \itemize{
       \item \code{\link[multi-method-3]{data.frame}}
@@ -21,7 +21,7 @@
 # S4 bullets print with no issues
 
     Code
-      cat(methods_rd("multi_method"))
+      cat(methods_list("multi_method"))
     Output
       \itemize{
       \item \code{\link[multi_method]{ANY,ANY}}
@@ -32,7 +32,7 @@
 # S4 and S3 packages can intermingle
 
     Code
-      cat(methods_rd("multi_method"))
+      cat(methods_list("multi_method"))
     Output
       \itemize{
       \item \code{\link[testS4Docs:multi_method]{ANY,ANY}} (\pkg{testS4Docs})
@@ -45,7 +45,7 @@
 # multiple methods with same rdname
 
     Code
-      cat(methods_rd("same_rd_name"))
+      cat(methods_list("same_rd_name"))
     Output
       \itemize{
       \item \code{\link[same_rd_name-2]{data.frame}}
