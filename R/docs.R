@@ -51,17 +51,7 @@ methods_rd <- function(x) {
   )
 
   bullets <- paste0(bullet_vec, collapse = "\n")
-
-  help_msg <- paste0(
-    "See the following help topics for more details about individual methods:\n"
-  )
-
-  paste0(
-    help_msg,
-    "\\itemize{\n",
-    bullets,
-    "\n}"
-  )
+  paste0("\\itemize{\n", bullets, "\n}")
 }
 
 last <- function(x, n = 0) {
