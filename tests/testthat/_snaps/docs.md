@@ -29,7 +29,7 @@
     Output
       \itemize{
         \item \code{\link[testS4Docs:multi_method]{ANY,ANY}} (\pkg{testS4Docs})
-        \item \code{character,ANY}
+        \item \code{character,ANY} (\pkg{testS4Docs})
         \item \code{\link[testS4Docs:multi_method]{numeric,ANY}} (\pkg{testS4Docs})
         \item \code{\link[testS4Docs:multi_method]{numeric,integer}} (\pkg{testS4Docs})
         \item \code{character}

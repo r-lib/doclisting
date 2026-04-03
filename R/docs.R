@@ -26,37 +26,21 @@
 #' cat(methods_list("mean"))
 methods_list <- function(x, package = NULL) {
   package <- package %||% utils::packageName(environment(match.fun(x)))
-  methods <- methods_find(x)
-
-  if (nrow(methods) == 0) {
+  meth <- methods_find(x)
+  if (nrow(meth) == 0) {
     return("")
   }
 
-  # Sort alphabetically by method name
-  methods <- methods[order(methods$method), , drop = FALSE]
+  meth <- meth[order(meth$method), , drop = FALSE]
 
-  documented <- !is.na(methods$topic)
-  external <- methods$package != package
+  documented <- !is.na(meth$topic)
+  external <- meth$package != package
 
-  link <- ifelse(
-    !documented,
-    methods$class,
-    ifelse(
-      external,
-      sprintf(
-        "\\link[%s:%s]{%s}",
-        methods$package,
-        methods$topic,
-        methods$class
-      ),
-      sprintf("\\link[%s]{%s}", methods$topic, methods$class)
-    )
-  )
-  pkg <- ifelse(
-    external & documented,
-    sprintf(" (\\pkg{%s})", methods$package),
-    ""
-  )
+  remote <- sprintf("\\link[%s:%s]{%s}", meth$package, meth$topic, meth$class)
+  local <- sprintf("\\link[%s]{%s}", meth$topic, meth$class)
+  link <- ifelse(!documented, meth$class, ifelse(external, remote, local))
+
+  pkg <- ifelse(external, sprintf(" (\\pkg{%s})", meth$package), "")
   bullets <- sprintf("  \\item \\code{%s}%s", link, pkg)
 
   paste0("\\itemize{\n", paste0(bullets, collapse = "\n"), "\n}")
