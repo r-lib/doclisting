@@ -57,7 +57,7 @@ methods_list <- function(x, package = NULL) {
     sprintf(" (\\pkg{%s})", methods$package),
     ""
   )
-  bullets <- sprintf("\\item \\code{%s}%s", link, pkg)
+  bullets <- sprintf("  \\item \\code{%s}%s", link, pkg)
 
   paste0("\\itemize{\n", paste0(bullets, collapse = "\n"), "\n}")
 }
