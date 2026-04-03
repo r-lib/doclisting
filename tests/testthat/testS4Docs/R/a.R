@@ -14,7 +14,10 @@ setMethod("multi_method", signature(x = "numeric"), function(x, y) {
 
 #' @rdname multi_method
 #' @export
-setMethod("multi_method", signature(x = "numeric", y = "integer"), function(x, y) {
-  x
-})
-
+setMethod(
+  "multi_method",
+  signature(x = "numeric", y = "integer"),
+  function(x, y) {
+    x
+  }
+)
