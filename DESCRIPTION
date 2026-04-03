@@ -11,7 +11,6 @@ License: MIT + file LICENSE
 Imports:
     methods
 Suggests: 
-    generics,
     pkgload,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3

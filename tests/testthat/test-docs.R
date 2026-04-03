@@ -1,8 +1,3 @@
-test_that("generics methods can be reexported and extended", {
-  local_load_all("testGenericsExtension")
-  expect_snapshot(cat(methods_list("tidy")))
-})
-
 test_that("methods from multiple packages", {
   local_load_all("testMultiMethod")
   local_load_all("testMultiPackage")

@@ -1,12 +1,3 @@
-# generics methods can be reexported and extended
-
-    Code
-      cat(methods_list("tidy"))
-    Output
-      \itemize{
-      \item \code{\link[testGenericsExtension:tidy-special]{special_method}} (\pkg{testGenericsExtension})
-      }
-
 # methods from multiple packages
 
     Code

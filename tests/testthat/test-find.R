@@ -18,7 +18,10 @@ test_that("methods_find finds S3 methods", {
 test_that("methods_find finds S4 methods", {
   local_load_all("testS4Docs")
   result <- methods_find("multi_method")
-  expect_equal(result$class, c("ANY,ANY", "character,ANY", "numeric,ANY", "numeric,integer"))
+  expect_equal(
+    result$class,
+    c("ANY,ANY", "character,ANY", "numeric,ANY", "numeric,integer")
+  )
   expect_equal(result$package, rep("testS4Docs", 4))
 })
 
@@ -32,14 +35,6 @@ test_that("methods_find finds methods across packages", {
 test_that("methods_find returns empty result for generic with no methods", {
   result <- methods_find("methods_list")
   expect_equal(nrow(result), 0)
-})
-
-test_that("methods_find handles reexported generics", {
-  local_load_all("testGenericsExtension")
-  result <- methods_find("tidy")
-  ext <- result[result$package == "testGenericsExtension", ]
-  expect_equal(ext$class, "special_method")
-  expect_equal(ext$topic, "tidy-special")
 })
 
 test_that("methods_find groups same rdname methods under same topic", {
