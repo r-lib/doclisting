@@ -32,3 +32,6 @@ You'll need to include \code{doclist} in Suggests.
 You'll need to include \code{doclist} in Imports.
 }
 }
+\examples{
+cat(methods_list("mean"))
+}

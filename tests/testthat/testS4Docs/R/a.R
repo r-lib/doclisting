@@ -21,3 +21,8 @@ setMethod(
     x
   }
 )
+
+#' @export
+setMethod("multi_method", signature(x = "character"), function(x, y) {
+  x
+})

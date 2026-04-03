@@ -31,3 +31,8 @@ multi_method.default <- function(x, y) {
 multi_method.data.frame <- function(x, y) {
   x
 }
+
+#' @export
+multi_method.character <- function(x, y) {
+  x
+}

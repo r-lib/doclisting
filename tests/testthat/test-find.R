@@ -10,16 +10,16 @@ test_that("methods_find returns expected columns", {
 test_that("methods_find finds S3 methods", {
   local_load_all("testMultiMethod")
   result <- methods_find("multi_method")
-  expect_equal(result$class, c("data.frame", "default"))
-  expect_equal(result$package, c("testMultiMethod", "testMultiMethod"))
-  expect_equal(result$topic, c("multi-method-3", "multi-method-2"))
+  expect_equal(result$class, c("character", "data.frame", "default"))
+  expect_equal(result$package, rep("testMultiMethod", 3))
+  expect_equal(result$topic, c(NA, "multi-method-3", "multi-method-2"))
 })
 
 test_that("methods_find finds S4 methods", {
   local_load_all("testS4Docs")
   result <- methods_find("multi_method")
-  expect_equal(result$class, c("ANY,ANY", "numeric,ANY", "numeric,integer"))
-  expect_equal(result$package, rep("testS4Docs", 3))
+  expect_equal(result$class, c("ANY,ANY", "character,ANY", "numeric,ANY", "numeric,integer"))
+  expect_equal(result$package, rep("testS4Docs", 4))
 })
 
 test_that("methods_find finds methods across packages", {
