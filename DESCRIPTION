@@ -5,12 +5,17 @@ Authors@R: c(
     person("Hadley", "Wickham", , "hadley@posit.co", role = c("aut", "cre")),
     person("Posit Software, PBC", role = c("cph", "fnd"))
   )
-Description: Automatically list related functions in documentation, 
-  particularly aimed at documenting generics.
+Description: Automatically list related functions in documentation,
+    particularly aimed at documenting generics.
 License: MIT + file LICENSE
+Imports:
+    methods
+Suggests: 
+    generics,
+    pkgload,
+    testthat (>= 3.0.0),
+    withr
+Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3.9000
-Suggests: 
-    testthat (>= 3.0.0)
-Config/testthat/edition: 3
