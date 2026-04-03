@@ -27,11 +27,8 @@ test_that("multiple methods with same rdname", {
   expect_snapshot(cat(methods_rd("same_rd_name")))
 })
 
-test_that("no methods case returns default output", {
-  expect_equal(
-    methods_rd("methods_rd"),
-    "No methods found in currently loaded packages."
-  )
+test_that("no methods returns empty string", {
+  expect_equal(methods_rd("methods_rd"), "")
 })
 
 test_that("nonexistant generic is an error", {

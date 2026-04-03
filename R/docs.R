@@ -3,7 +3,7 @@ methods_rd <- function(x) {
   methods <- methods[!is.na(methods$topic), , drop = FALSE]
 
   if (nrow(methods) == 0) {
-    return("No methods found in currently loaded packages.")
+    return("")
   }
 
   # Sort alphabetically by method name
