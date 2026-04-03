@@ -1,7 +1,10 @@
 test_that("methods_find returns expected columns", {
   local_load_all("testMultiMethod")
   result <- methods_find("multi_method")
-  expect_named(result, c("method", "class", "package", "topic", "visible", "source"))
+  expect_named(
+    result,
+    c("method", "class", "package", "topic", "visible", "source")
+  )
 })
 
 test_that("methods_find finds S3 methods", {
@@ -48,15 +51,27 @@ test_that("methods_find groups same rdname methods under same topic", {
 
 test_that("lookup_package finds S3 method package", {
   local_load_all("testMultiMethod")
-  expect_equal(lookup_package("multi_method", "default", FALSE), "testMultiMethod")
-  expect_equal(lookup_package("multi_method", "data.frame", FALSE), "testMultiMethod")
+  expect_equal(
+    lookup_package("multi_method", "default", FALSE),
+    "testMultiMethod"
+  )
+  expect_equal(
+    lookup_package("multi_method", "data.frame", FALSE),
+    "testMultiMethod"
+  )
 })
 
 test_that("lookup_package finds S4 method package", {
   local_load_all("testS4Docs")
-  expect_equal(lookup_package("multi_method", "numeric,ANY", TRUE), "testS4Docs")
+  expect_equal(
+    lookup_package("multi_method", "numeric,ANY", TRUE),
+    "testS4Docs"
+  )
 })
 
 test_that("lookup_package returns NA for nonexistent method", {
-  expect_equal(lookup_package("multi_method", "nonexistent_class", FALSE), NA_character_)
+  expect_equal(
+    lookup_package("multi_method", "nonexistent_class", FALSE),
+    NA_character_
+  )
 })
