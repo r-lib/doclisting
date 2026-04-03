@@ -9,18 +9,13 @@ methods_rd <- function(x) {
   # Sort alphabetically by method name
   methods <- methods[order(methods$method), , drop = FALSE]
 
-  bullet_vec <- paste0(
-    "\\item \\code{\\link[",
+  bullets <- sprintf(
+    "\\item \\code{\\link[%s:%s]{%s}} (\\pkg{%s})",
     methods$package,
-    ":",
     methods$topic,
-    "]{",
     methods$class,
-    "}} (\\pkg{",
-    methods$package,
-    "})"
+    methods$package
   )
 
-  bullets <- paste0(bullet_vec, collapse = "\n")
-  paste0("\\itemize{\n", bullets, "\n}")
+  paste0("\\itemize{\n", paste0(bullets, collapse = "\n"), "\n}")
 }
