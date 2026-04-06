@@ -36,7 +36,15 @@ help_path <- function(x, package) {
 
   vapply(
     help,
-    function(x) if (length(x) == 0) NA_character_ else as.character(x),
+    function(x) {
+      if (length(x) == 0) {
+        NA_character_
+      } else if (inherits(x, "dev_topic")) {
+        sub("[.]Rd$", "", x$path)
+      } else {
+        as.character(x)
+      }
+    },
     FUN.VALUE = character(1)
   )
 }
@@ -59,11 +67,6 @@ locate_help_doc <- function(x, package) {
   } else {
     help(x, (package))
   }
-}
-
-#' @export
-as.character.dev_topic <- function(x, ...) {
-  sub("[.]Rd$", "", x$path)
 }
 
 lookup_package <- function(generic, class, is_s4) {
