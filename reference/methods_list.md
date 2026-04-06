@@ -54,5 +54,8 @@ cat(methods_list("mean"))
 #>   \item \code{vctrs_vctr} (\pkg{vctrs})
 #> }
 cat(methods_inline("mean"))
-#> \code{\link[=Dates]{Date}}, \code{\link[=DateTimeClasses]{POSIXct}}, \code{\link[=DateTimeClasses]{POSIXlt}}, \code{default}, \code{\link[=difftime]{difftime}}, \code{quosure} (\pkg{rlang}), \code{vctrs_vctr} (\pkg{vctrs})
+#> \code{\link[=Dates]{Date}}, \code{\link[=DateTimeClasses]{POSIXct}},
+#> \code{\link[=DateTimeClasses]{POSIXlt}}, \code{default},
+#> \code{\link[=difftime]{difftime}}, \code{quosure} (\pkg{rlang}),
+#> \code{vctrs_vctr} (\pkg{vctrs})
 ```
