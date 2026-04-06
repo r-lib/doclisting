@@ -54,4 +54,10 @@ You can use it in roxygen2 documentation in two ways:
         #' @description
         #' `Rd doclisting::methods_list("my_generic")`
 
-    You'll need to add `doclisting` to `Imports`.
+    You'll need to add `doclisting` to `Imports` and add dummy call to `methods_list()` to eliminate the R CMD check note:
+
+    ```R
+    ignore_unused_imports <- function() {
+        doclisting::methods_list
+    }
+    ```
