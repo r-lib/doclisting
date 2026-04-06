@@ -22,6 +22,11 @@ test_that("multiple methods with same rdname", {
   expect_snapshot(cat(methods_list("same_rd_name")))
 })
 
+test_that("self-links are suppressed", {
+  local_load_all("testSelfLink")
+  expect_snapshot(cat(methods_list("self_link")))
+})
+
 test_that("no methods returns empty string", {
   expect_equal(methods_list("methods_list"), "")
 })

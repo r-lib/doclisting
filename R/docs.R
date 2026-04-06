@@ -33,6 +33,10 @@ methods_list <- function(x, package = NULL) {
 
   meth <- meth[order(meth$method), , drop = FALSE]
 
+  # Suppress self-links (methods documented on the same page as the generic)
+  generic_topic <- help_topic(x, package)
+  meth$topic[meth$topic == generic_topic] <- NA
+
   documented <- !is.na(meth$topic)
   external <- meth$package != package
 

@@ -16,10 +16,10 @@
       cat(methods_list("multi_method"))
     Output
       \itemize{
-        \item \code{\link[=multi_method]{ANY,ANY}}
+        \item \code{ANY,ANY}
         \item \code{character,ANY}
-        \item \code{\link[=multi_method]{numeric,ANY}}
-        \item \code{\link[=multi_method]{numeric,integer}}
+        \item \code{numeric,ANY}
+        \item \code{numeric,integer}
       }
 
 # S4 and S3 packages can intermingle
@@ -45,5 +45,15 @@
       \itemize{
         \item \code{\link[=same_rd_name-2]{data.frame}}
         \item \code{\link[=same_rd_name-2]{default}}
+      }
+
+# self-links are suppressed
+
+    Code
+      cat(methods_list("self_link"))
+    Output
+      \itemize{
+        \item \code{\link[=self_link-data.frame]{data.frame}}
+        \item \code{default}
       }
 

@@ -20,11 +20,15 @@ methods_find <- function(x) {
   info$package <- lookup_package(x, info$class, info$isS4)
 
   # Find help topic
-  path <- help_path(info$method, info$package)
-  pieces <- strsplit(path, "/")
-  info$topic <- vapply(pieces, last, character(1))
+  info$topic <- help_topic(info$method, info$package)
 
   info[c("method", "class", "package", "topic", "visible", "source")]
+}
+
+help_topic <- function(x, package) {
+  path <- help_path(x, package)
+  pieces <- strsplit(path, "/")
+  vapply(pieces, last, character(1))
 }
 
 help_path <- function(x, package) {
