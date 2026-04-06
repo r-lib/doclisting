@@ -62,5 +62,7 @@
     Code
       cat(methods_inline("multi_method"))
     Output
-      \code{character}, \code{\link[=multi-method-3]{data.frame}}, \code{\link[=multi-method-2]{default}}, \code{\link[testMultiPackage:multi-method-4]{matrix}} (\pkg{testMultiPackage})
+      \code{character}, \code{\link[=multi-method-3]{data.frame}},
+      \code{\link[=multi-method-2]{default}},
+      \code{\link[testMultiPackage:multi-method-4]{matrix}} (\pkg{testMultiPackage})
 

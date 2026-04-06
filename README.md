@@ -39,7 +39,9 @@ cat(doclisting::methods_list("mean"))
 #>   \item \code{quosure} (\pkg{rlang})
 #> }
 cat(doclisting::methods_inline("mean"))
-#> \code{\link[=Dates]{Date}}, \code{default}, \code{\link[=difftime]{difftime}}, \code{\link[=DateTimeClasses]{POSIXct}}, \code{\link[=DateTimeClasses]{POSIXlt}}, \code{quosure} (\pkg{rlang})
+#> \code{\link[=Dates]{Date}}, \code{default}, \code{\link[=difftime]{difftime}},
+#> \code{\link[=DateTimeClasses]{POSIXct}},
+#> \code{\link[=DateTimeClasses]{POSIXlt}}, \code{quosure} (\pkg{rlang})
 ```
 
 You can use it in roxygen2 documentation in two ways:

@@ -46,7 +46,7 @@ methods_inline <- function(x, package = NULL) {
   }
 
   items <- sprintf("\\code{%s}%s", meth$link, meth$pkg)
-  paste0(items, collapse = ", ")
+  paste0(strwrap(paste0(items, collapse = ", "), 80), collapse = "\n")
 }
 
 methods_prep <- function(x, package = NULL) {
