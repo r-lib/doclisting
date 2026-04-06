@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 # doclisting
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/r-lib/doclisting/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/r-lib/doclisting/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/r-lib/doclisting/graph/badge.svg)](https://app.codecov.io/gh/r-lib/doclisting)
 <!-- badges: end -->
 
 doclisting automatically generates itemized lists of methods for a generic function, suitable for inclusion in roxygen2 documentation. Each method links to its help topic, and methods from other packages are clearly labeled.

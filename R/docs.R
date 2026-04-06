@@ -50,7 +50,7 @@ methods_inline <- function(x, package = NULL) {
 }
 
 methods_prep <- function(x, package = NULL) {
-  package <- package %||% find_package(x)
+  package <- if (is.null(package)) find_package(x) else package
   if (is.null(package)) {
     return(NULL)
   }
