@@ -33,6 +33,7 @@ air format .
 
 ### Coding
 
+* This package must have zero dependencies outside of base R. Never add Imports or Depends (other than R itself). Only use functions from base R packages (base, utils, methods, stats, tools, etc.).
 * Always run `air format .` after generating code
 * Use the base pipe operator (`|>`) not the magrittr pipe (`%>%`)
 * Don't use `_$x` or `_$[["x"]]` since this package must work on R 4.1.
