@@ -50,7 +50,11 @@ methods_inline <- function(x, package = NULL) {
 }
 
 methods_prep <- function(x, package = NULL) {
-  package <- package %||% utils::packageName(environment(match.fun(x)))
+  package <- package %||% find_package(x)
+  if (is.null(package)) {
+    return(NULL)
+  }
+
   meth <- methods_find(x)
   if (nrow(meth) == 0) {
     return(NULL)

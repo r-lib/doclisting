@@ -8,6 +8,14 @@ defer <- function(expr, env = parent.frame(), after = FALSE) {
   do.call(on.exit, list(thunk, TRUE, after), envir = env)
 }
 
+find_package <- function(x) {
+  fn <- tryCatch(match.fun(x), error = function(e) NULL)
+  if (is.null(fn)) {
+    return(NULL)
+  }
+  utils::packageName(environment(fn))
+}
+
 last <- function(x, n = 0) {
   if (length(x) <= n) {
     x[NA_integer_]
