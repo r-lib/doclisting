@@ -2,27 +2,29 @@
 % Please edit documentation in R/docs.R
 \name{methods_list}
 \alias{methods_list}
+\alias{methods_inline}
 \title{List methods for a generic}
 \usage{
 methods_list(x, package = NULL)
+
+methods_inline(x, package = NULL)
 }
 \arguments{
 \item{x}{Name of the generic function (a string).}
 
-\item{package}{Package that defines the generic. Defaults to the
-package where the generic is defined.}
+\item{package}{Package that defines the generic. Should only be needed
+in unusual cases as the default will attempt to determine it automatically.}
 }
 \value{
 A string containing Rd markup, or \code{""} if no methods are
 found.
 }
 \description{
-Generates an Rd \verb{\\itemize\{\}} block listing all methods found for a
-generic function, with links to their help topics. Methods from the
-same package as the generic are linked without a package qualifier;
-methods from other packages include the package name.
+Generate \code{Rd} markup to list methods for a generic function.
+\code{methods_list()} generates an bulleted list and \code{methods_inline()}
+produces a comma-separated list, suitable for inline use.
 
-You can use in roxygen2 document in two ways:
+You can use them in roxygen2 document in two ways:
 \itemize{
 \item Compute methods when package is documented:
 \code{`r doclist::methods_list("generic")`}
@@ -31,7 +33,11 @@ You'll need to include \code{doclist} in Suggests.
 \code{`Rd doclist::methods_list("generic")`}
 You'll need to include \code{doclist} in Imports.
 }
+
+Methods from the same package as the generic are linked without a package
+qualifier; methods from other packages include the package name.
 }
 \examples{
 cat(methods_list("mean"))
+cat(methods_inline("mean"))
 }

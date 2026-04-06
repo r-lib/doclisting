@@ -22,19 +22,21 @@ pak::pak("hadley/doclisting")
 
 ## Usage
 
-`methods_list()` generates Rd markup listing all methods for a generic:
+`methods_list()` and `methods_inline()` generate Rd markup listing all
+methods for a generic:
 
 ``` r
-library(doclisting)
-cat(methods_list("mean"))
+cat(doclisting::methods_list("mean"))
 #> \itemize{
-#> \item \code{\link[Dates]{Date}}
-#> \item \code{\link[mean]{default}}
-#> \item \code{\link[difftime]{difftime}}
-#> \item \code{\link[DateTimeClasses]{POSIXct}}
-#> \item \code{\link[DateTimeClasses]{POSIXlt}}
-#> \item \code{quosure}
+#>   \item \code{\link[=Dates]{Date}}
+#>   \item \code{default}
+#>   \item \code{\link[=difftime]{difftime}}
+#>   \item \code{\link[=DateTimeClasses]{POSIXct}}
+#>   \item \code{\link[=DateTimeClasses]{POSIXlt}}
+#>   \item \code{quosure} (\pkg{rlang})
 #> }
+cat(doclisting::methods_inline("mean"))
+#> \code{\link[=Dates]{Date}}, \code{default}, \code{\link[=difftime]{difftime}}, \code{\link[=DateTimeClasses]{POSIXct}}, \code{\link[=DateTimeClasses]{POSIXlt}}, \code{quosure} (\pkg{rlang})
 ```
 
 You can use it in roxygen2 documentation in two ways:

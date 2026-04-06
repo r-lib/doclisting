@@ -27,10 +27,18 @@ test_that("self-links are suppressed", {
   expect_snapshot(cat(methods_list("self_link")))
 })
 
+test_that("methods_inline() produces comma-separated output", {
+  local_load_all("testMultiMethod")
+  local_load_all("testMultiPackage")
+  expect_snapshot(cat(methods_inline("multi_method")))
+})
+
 test_that("no methods returns empty string", {
   expect_equal(methods_list("methods_list"), "")
+  expect_equal(methods_inline("methods_list"), "")
 })
 
 test_that("nonexistant generic is an error", {
   expect_error(methods_list("xyz"))
+  expect_error(methods_inline("xyz"))
 })

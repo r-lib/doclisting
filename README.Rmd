@@ -30,11 +30,11 @@ pak::pak("hadley/doclisting")
 
 ## Usage
 
-`methods_list()` generates Rd markup listing all methods for a generic:
+`methods_list()` and `methods_inline()` generate Rd markup listing all methods for a generic:
 
 ```{r}
-library(doclisting)
-cat(methods_list("mean"))
+cat(doclisting::methods_list("mean"))
+cat(doclisting::methods_inline("mean"))
 ```
 
 You can use it in roxygen2 documentation in two ways:
