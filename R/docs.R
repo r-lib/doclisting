@@ -37,7 +37,7 @@ methods_list <- function(x, package = NULL) {
   external <- meth$package != package
 
   remote <- sprintf("\\link[%s:%s]{%s}", meth$package, meth$topic, meth$class)
-  local <- sprintf("\\link[%s]{%s}", meth$topic, meth$class)
+  local <- sprintf("\\link[=%s]{%s}", meth$topic, meth$class)
   link <- ifelse(!documented, meth$class, ifelse(external, remote, local))
 
   pkg <- ifelse(external, sprintf(" (\\pkg{%s})", meth$package), "")
