@@ -1,6 +1,6 @@
 test_that("methods from multiple packages", {
   local_load_all("testS3")
-  local_load_all("testMultiPackage")
+  local_load_all("testExtendsS3")
   expect_snapshot(cat(methods_list("uni")))
 })
 
@@ -30,7 +30,7 @@ test_that("self-links are suppressed", {
 
 test_that("methods_inline() produces comma-separated output", {
   local_load_all("testS3")
-  local_load_all("testMultiPackage")
+  local_load_all("testExtendsS3")
   expect_snapshot(cat(methods_inline("uni")))
 })
 

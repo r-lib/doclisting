@@ -7,7 +7,7 @@
         \item \code{character}
         \item \code{\link[=uni.data.frame]{data.frame}}
         \item \code{\link[=uni.default]{default}}
-        \item \code{\link[testMultiPackage:uni.matrix]{matrix}} (\pkg{testMultiPackage})
+        \item \code{\link[testExtendsS3:uni.matrix]{matrix}} (\pkg{testExtendsS3})
       }
 
 # S4 bullets print with no issues
@@ -77,5 +77,5 @@
     Output
       \code{character}, \code{\link[=uni.data.frame]{data.frame}},
       \code{\link[=uni.default]{default}},
-      \code{\link[testMultiPackage:uni.matrix]{matrix}} (\pkg{testMultiPackage})
+      \code{\link[testExtendsS3:uni.matrix]{matrix}} (\pkg{testExtendsS3})
 

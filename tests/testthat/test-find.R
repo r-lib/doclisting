@@ -27,9 +27,9 @@ test_that("methods_find finds S4 methods", {
 
 test_that("methods_find finds methods across packages", {
   local_load_all("testS3")
-  local_load_all("testMultiPackage")
+  local_load_all("testExtendsS3")
   result <- methods_find("uni")
-  expect_contains(result$package, c("testS3", "testMultiPackage"))
+  expect_contains(result$package, c("testS3", "testExtendsS3"))
 })
 
 test_that("methods_find returns empty result for generic with no methods", {
