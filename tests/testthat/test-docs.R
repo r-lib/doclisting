@@ -1,20 +1,20 @@
 test_that("methods from multiple packages", {
   local_load_all("testMultiMethod")
   local_load_all("testMultiPackage")
-  expect_snapshot(cat(methods_list("multi_method")))
+  expect_snapshot(cat(methods_list("uni")))
 })
 
 test_that("S4 bullets print with no issues", {
   local_load_all("testS4Docs")
 
-  expect_snapshot(cat(methods_list("multi_method")))
+  expect_snapshot(cat(methods_list("multi")))
 })
 
-test_that("S4 and S3 packages can intermingle", {
+test_that("S4 and S7 packages can intermingle", {
   local_load_all("testS4Docs")
-  local_load_all("testMultiMethod")
+  local_load_all("testS7Docs")
 
-  expect_snapshot(cat(methods_list("multi_method")))
+  expect_snapshot(cat(methods_list("multi")))
 })
 
 test_that("multiple methods with same rdname", {
@@ -30,7 +30,7 @@ test_that("self-links are suppressed", {
 test_that("methods_inline() produces comma-separated output", {
   local_load_all("testMultiMethod")
   local_load_all("testMultiPackage")
-  expect_snapshot(cat(methods_inline("multi_method")))
+  expect_snapshot(cat(methods_inline("uni")))
 })
 
 test_that("no methods returns empty string", {

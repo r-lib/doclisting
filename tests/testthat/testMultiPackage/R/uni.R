@@ -2,8 +2,8 @@
 #'
 #' @param x,y A parameter
 #'
-#' @rdname multi-method-4
+#' @rdname uni-4
 #' @export
-multi_method.matrix <- function(x, y) {
+uni.matrix <- function(x, y) {
   x
 }

@@ -1,19 +1,19 @@
 # methods from multiple packages
 
     Code
-      cat(methods_list("multi_method"))
+      cat(methods_list("uni"))
     Output
       \itemize{
         \item \code{character}
-        \item \code{\link[=multi-method-3]{data.frame}}
-        \item \code{\link[=multi-method-2]{default}}
-        \item \code{\link[testMultiPackage:multi-method-4]{matrix}} (\pkg{testMultiPackage})
+        \item \code{\link[=uni-3]{data.frame}}
+        \item \code{\link[=uni-2]{default}}
+        \item \code{\link[testMultiPackage:uni-4]{matrix}} (\pkg{testMultiPackage})
       }
 
 # S4 bullets print with no issues
 
     Code
-      cat(methods_list("multi_method"))
+      cat(methods_list("multi"))
     Output
       \itemize{
         \item \code{ANY,ANY}
@@ -22,19 +22,14 @@
         \item \code{numeric,integer}
       }
 
-# S4 and S3 packages can intermingle
+# S4 and S7 packages can intermingle
 
     Code
-      cat(methods_list("multi_method"))
+      cat(methods_list("multi"))
     Output
       \itemize{
-        \item \code{\link[testS4Docs:multi_method]{ANY,ANY}} (\pkg{testS4Docs})
-        \item \code{character,ANY} (\pkg{testS4Docs})
-        \item \code{\link[testS4Docs:multi_method]{numeric,ANY}} (\pkg{testS4Docs})
-        \item \code{\link[testS4Docs:multi_method]{numeric,integer}} (\pkg{testS4Docs})
-        \item \code{character}
-        \item \code{\link[=multi-method-3]{data.frame}}
-        \item \code{\link[=multi-method-2]{default}}
+        \item \code{\link[=multi-2]{character,integer}}
+        \item \code{integer,character}
       }
 
 # multiple methods with same rdname
@@ -60,9 +55,9 @@
 # methods_inline() produces comma-separated output
 
     Code
-      cat(methods_inline("multi_method"))
+      cat(methods_inline("uni"))
     Output
-      \code{character}, \code{\link[=multi-method-3]{data.frame}},
-      \code{\link[=multi-method-2]{default}},
-      \code{\link[testMultiPackage:multi-method-4]{matrix}} (\pkg{testMultiPackage})
+      \code{character}, \code{\link[=uni-3]{data.frame}},
+      \code{\link[=uni-2]{default}}, \code{\link[testMultiPackage:uni-4]{matrix}}
+      (\pkg{testMultiPackage})
 
