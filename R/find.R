@@ -1,5 +1,9 @@
 # Modified from sloop::methods_generic
 methods_find <- function(x) {
+  if (is_s7_generic(x)) {
+    return(methods_find_s7(match.fun(x), x))
+  }
+
   info <- attr(utils::methods(x), "info")
 
   if (nrow(info) == 0) {
@@ -78,19 +82,11 @@ lookup_package <- function(generic, class, is_s4) {
       fn <- utils::getS3method(generic, class, optional = TRUE)
     }
 
-    # Not found
     if (is.null(fn)) {
       return(NA_character_)
     }
 
-    pkg <- utils::packageName(environment(fn))
-
-    # Function method found, but in a non-package environment
-    if (is.null(pkg)) {
-      return(NA_character_)
-    }
-
-    pkg
+    fn_package(fn)
   }
 
   pkgs <- mapply(lookup_single_package, generic, class, is_s4, SIMPLIFY = FALSE)

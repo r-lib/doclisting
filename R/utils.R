@@ -13,7 +13,12 @@ find_package <- function(x) {
   if (is.null(fn)) {
     return(NULL)
   }
-  utils::packageName(environment(fn))
+  fn_package(fn)
+}
+
+fn_package <- function(fn) {
+  pkg <- utils::packageName(environment(fn))
+  if (is.null(pkg)) NA_character_ else pkg
 }
 
 last <- function(x, n = 0) {
