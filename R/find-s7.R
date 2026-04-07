@@ -44,13 +44,8 @@ s7_walk_methods <- function(env, signature = character()) {
     if (is.environment(val)) {
       result <- c(result, s7_walk_methods(val, c(signature, nm)))
     } else {
-      result <- c(
-        result,
-        list(list(
-          classes = c(signature, nm),
-          method = val
-        ))
-      )
+      method <- list(classes = c(signature, nm), method = val)
+      result <- c(result, list(method))
     }
   }
   result
