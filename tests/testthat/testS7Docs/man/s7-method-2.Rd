@@ -3,6 +3,10 @@
 \name{s7_method,character-method}
 \alias{s7_method,character-method}
 \title{S7 character method}
+\usage{
+## S7 method for class <character>
+s7_method(x, ...)
+}
 \description{
 S7 character method
 }

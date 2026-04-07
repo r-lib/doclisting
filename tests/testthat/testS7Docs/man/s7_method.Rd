@@ -6,6 +6,9 @@
 \title{An S7 generic}
 \usage{
 s7_method(x, ...)
+
+## S7 method for class <integer>
+s7_method(x, ...)
 }
 \arguments{
 \item{x, y}{A parameter}

@@ -3,6 +3,10 @@
 \name{s7_multi,character,integer-method}
 \alias{s7_multi,character,integer-method}
 \title{S7 multi-dispatch method}
+\usage{
+## S7 method for classes <character>, <integer>
+s7_multi(x, y, ...)
+}
 \description{
 S7 multi-dispatch method
 }

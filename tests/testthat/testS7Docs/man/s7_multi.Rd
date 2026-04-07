@@ -6,6 +6,9 @@
 \title{An S7 multi-dispatch generic}
 \usage{
 s7_multi(x, y, ...)
+
+## S7 method for classes <integer>, <character>
+s7_multi(x, y, ...)
 }
 \arguments{
 \item{x, y}{A parameter}
