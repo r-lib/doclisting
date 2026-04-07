@@ -10,11 +10,12 @@ test_that("S4 bullets print with no issues", {
   expect_snapshot(cat(methods_list("multi")))
 })
 
-test_that("S4 and S7 packages can intermingle", {
+test_that("S4 and S3 packages can intermingle", {
   local_load_all("testS4")
-  local_load_all("testS7")
+  local_load_all("testS3")
 
-  expect_snapshot(cat(methods_list("multi")))
+  expect_snapshot(cat(methods_list("uni", "testS4")))
+  expect_snapshot(cat(methods_list("uni", "testS3")))
 })
 
 test_that("multiple methods with same rdname", {

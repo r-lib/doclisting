@@ -22,14 +22,32 @@
         \item \code{numeric,integer}
       }
 
-# S4 and S7 packages can intermingle
+# S4 and S3 packages can intermingle
 
     Code
-      cat(methods_list("multi"))
+      cat(methods_list("uni", "testS4"))
     Output
       \itemize{
-        \item \code{\link[=multi-character-integer-method]{character,integer}}
-        \item \code{integer,character}
+        \item \code{ANY}
+        \item \code{character}
+        \item \code{numeric}
+        \item \code{character} (\pkg{testS3})
+        \item \code{\link[testS3:uni.data.frame]{data.frame}} (\pkg{testS3})
+        \item \code{\link[testS3:uni.default]{default}} (\pkg{testS3})
+      }
+
+---
+
+    Code
+      cat(methods_list("uni", "testS3"))
+    Output
+      \itemize{
+        \item \code{\link[testS4:uni]{ANY}} (\pkg{testS4})
+        \item \code{character} (\pkg{testS4})
+        \item \code{\link[testS4:uni]{numeric}} (\pkg{testS4})
+        \item \code{character}
+        \item \code{\link[=uni.data.frame]{data.frame}}
+        \item \code{\link[=uni.default]{default}}
       }
 
 # multiple methods with same rdname
