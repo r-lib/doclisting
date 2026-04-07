@@ -1,5 +1,9 @@
 # Modified from sloop::methods_generic
 methods_find <- function(x) {
+  if (is_s7_generic(x)) {
+    return(methods_find_s7(match.fun(x), x))
+  }
+
   info <- attr(utils::methods(x), "info")
 
   if (nrow(info) == 0) {
