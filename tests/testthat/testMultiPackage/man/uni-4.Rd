@@ -4,7 +4,7 @@
 \alias{uni.matrix}
 \title{Test data frame}
 \usage{
-\method{uni}{matrix}(x, y)
+uni.matrix(x, y)
 }
 \arguments{
 \item{x, y}{A parameter}

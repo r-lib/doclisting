@@ -1,5 +1,0 @@
-Package: testS7Docs
-Version: 0.1
-Encoding: UTF-8
-Imports: S7
-Config/roxygen2/version: 7.3.3.9000
