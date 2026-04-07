@@ -16,7 +16,6 @@ methods_find_s7 <- function(generic, name) {
       topic = character(),
       visible = logical(),
       source = character(),
-      stringsAsFactors = FALSE
     ))
   }
 
@@ -33,8 +32,7 @@ methods_find_s7 <- function(generic, name) {
     package = package,
     topic = topic,
     visible = rep(TRUE, length(methods)),
-    source = rep(NA_character_, length(methods)),
-    stringsAsFactors = FALSE
+    source = rep(NA_character_, length(methods))
   )
 }
 
