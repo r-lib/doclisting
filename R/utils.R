@@ -1,3 +1,12 @@
+# for internal use only
+document_test_packages <- function() {
+  pkgs <- list.dirs("tests/testthat", recursive = FALSE, full.names = TRUE)
+  pkgs <- pkgs[file.exists(file.path(pkgs, "DESCRIPTION"))]
+  for (pkg in pkgs) {
+    getNamespace("roxygen2")$roxygenise(pkg)
+  }
+}
+
 local_load_all <- function(path, env = parent.frame()) {
   pkgload::load_all(path, quiet = TRUE)
   defer(pkgload::unload(path), env = env)

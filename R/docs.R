@@ -64,7 +64,9 @@ methods_prep <- function(x, package = NULL) {
 
   # Suppress self-links (methods documented on the same page as the generic)
   generic_topic <- help_topic(x, package)
-  meth$topic[meth$topic == generic_topic] <- NA
+  same_topic <- meth$topic == generic_topic
+  same_package <- meth$package == package
+  meth$topic[same_topic & same_package] <- NA
 
   documented <- !is.na(meth$topic)
   external <- meth$package != package

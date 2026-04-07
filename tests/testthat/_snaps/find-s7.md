@@ -1,20 +1,20 @@
 # S7 methods_list output
 
     Code
-      cat(methods_list("s7_method"))
+      cat(methods_list("uni"))
     Output
       \itemize{
-        \item \code{\link[=s7-method-2]{character}}
+        \item \code{\link[=uni-character-method]{character}}
         \item \code{integer}
       }
 
 # S7 multi-dispatch methods_list output
 
     Code
-      cat(methods_list("s7_multi"))
+      cat(methods_list("multi"))
     Output
       \itemize{
-        \item \code{\link[=s7-multi-2]{character,integer}}
+        \item \code{\link[=multi-character-integer-method]{character,integer}}
         \item \code{integer,character}
       }
 
