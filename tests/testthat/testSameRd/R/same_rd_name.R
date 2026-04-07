@@ -15,6 +15,7 @@ same_rd_name <- function(x) {
 #' @param x A parameter
 #'
 #' @rdname same_rd_name-2
+#' @export
 same_rd_name.default <- function(x) {
   x
 }
@@ -24,6 +25,7 @@ same_rd_name.default <- function(x) {
 #' @param x A parameter
 #'
 #' @rdname same_rd_name-2
+#' @export
 same_rd_name.data.frame <- function(x) {
   x
 }
