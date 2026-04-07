@@ -12,7 +12,7 @@ test_that("methods_find finds S3 methods", {
   result <- methods_find("uni")
   expect_equal(result$class, c("character", "data.frame", "default"))
   expect_equal(result$package, rep("testS3", 3))
-  expect_equal(result$topic, c(NA, "uni-3", "uni-2"))
+  expect_equal(result$topic, c(NA, "uni.data.frame", "uni.default"))
 })
 
 test_that("methods_find finds S4 methods", {
@@ -40,7 +40,7 @@ test_that("methods_find returns empty result for generic with no methods", {
 test_that("methods_find groups same rdname methods under same topic", {
   local_load_all("testS3")
   result <- methods_find("same_rd_name")
-  expect_equal(result$topic, c("same_rd_name-2", "same_rd_name-2"))
+  expect_equal(result$topic, c("same_rd_name.default", "same_rd_name.default"))
   expect_equal(result$class, c("data.frame", "default"))
 })
 

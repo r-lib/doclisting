@@ -11,7 +11,7 @@ test_that("methods_find finds S7 multi-dispatch methods", {
   result <- methods_find("multi")
   expect_equal(result$class, c("character,integer", "integer,character"))
   expect_equal(result$package, rep("testS7", 2))
-  expect_equal(result$topic, c("multi-2", "multi"))
+  expect_equal(result$topic, c("multi-character-integer-method", "multi"))
 })
 
 test_that("S7 methods_list output", {

@@ -1,8 +1,6 @@
 #' A generic with a self-linked method
 #'
 #' @param x A parameter
-#'
-#' @rdname self_link
 #' @export
 self_link <- function(x) {
   UseMethod("self_link")
@@ -17,8 +15,6 @@ self_link.default <- function(x) {
 #' Test data frame
 #'
 #' @param x A parameter
-#'
-#' @rdname self_link-data.frame
 #' @export
 self_link.data.frame <- function(x) {
   x

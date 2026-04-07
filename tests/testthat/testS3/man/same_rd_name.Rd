@@ -10,5 +10,5 @@ same_rd_name(x)
 \item{x}{A parameter}
 }
 \description{
-Should be comma separated
+Generic test for multiple methods on the same rd file
 }

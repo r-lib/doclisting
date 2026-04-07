@@ -1,10 +1,6 @@
 #' Generic test for multiple methods
 #'
-#'
 #' @param x,y A parameter
-#'
-#' @rdname uni
-#'
 #' @export
 uni <- function(x, y) {
   UseMethod("uni")
@@ -13,9 +9,6 @@ uni <- function(x, y) {
 #' Test default
 #'
 #' @param x,y A parameter
-#'
-#' @rdname uni-2
-#'
 #' @export
 uni.default <- function(x, y) {
   x
@@ -24,9 +17,6 @@ uni.default <- function(x, y) {
 #' Test data frame
 #'
 #' @param x,y A parameter
-#'
-#' @rdname uni-3
-#'
 #' @export
 uni.data.frame <- function(x, y) {
   x

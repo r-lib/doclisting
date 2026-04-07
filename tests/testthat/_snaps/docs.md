@@ -5,9 +5,9 @@
     Output
       \itemize{
         \item \code{character}
-        \item \code{\link[=uni-3]{data.frame}}
-        \item \code{\link[=uni-2]{default}}
-        \item \code{\link[testMultiPackage:uni-4]{matrix}} (\pkg{testMultiPackage})
+        \item \code{\link[=uni.data.frame]{data.frame}}
+        \item \code{\link[=uni.default]{default}}
+        \item \code{\link[testMultiPackage:uni.matrix]{matrix}} (\pkg{testMultiPackage})
       }
 
 # S4 bullets print with no issues
@@ -28,7 +28,7 @@
       cat(methods_list("multi"))
     Output
       \itemize{
-        \item \code{\link[=multi-2]{character,integer}}
+        \item \code{\link[=multi-character-integer-method]{character,integer}}
         \item \code{integer,character}
       }
 
@@ -38,8 +38,8 @@
       cat(methods_list("same_rd_name"))
     Output
       \itemize{
-        \item \code{\link[=same_rd_name-2]{data.frame}}
-        \item \code{\link[=same_rd_name-2]{default}}
+        \item \code{\link[=same_rd_name.default]{data.frame}}
+        \item \code{\link[=same_rd_name.default]{default}}
       }
 
 # self-links are suppressed
@@ -48,7 +48,7 @@
       cat(methods_list("self_link"))
     Output
       \itemize{
-        \item \code{\link[=self_link-data.frame]{data.frame}}
+        \item \code{\link[=self_link.data.frame]{data.frame}}
         \item \code{default}
       }
 
@@ -57,7 +57,7 @@
     Code
       cat(methods_inline("uni"))
     Output
-      \code{character}, \code{\link[=uni-3]{data.frame}},
-      \code{\link[=uni-2]{default}}, \code{\link[testMultiPackage:uni-4]{matrix}}
-      (\pkg{testMultiPackage})
+      \code{character}, \code{\link[=uni.data.frame]{data.frame}},
+      \code{\link[=uni.default]{default}},
+      \code{\link[testMultiPackage:uni.matrix]{matrix}} (\pkg{testMultiPackage})
 

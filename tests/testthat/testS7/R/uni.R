@@ -8,6 +8,4 @@ uni <- S7::new_generic("uni", "x")
 S7::method(uni, S7::class_integer) <- function(x, ...) x
 
 #' S7 character method
-#'
-#' @rdname uni-2
 S7::method(uni, S7::class_character) <- function(x, ...) x

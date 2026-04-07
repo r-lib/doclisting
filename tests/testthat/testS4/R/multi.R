@@ -1,7 +1,6 @@
 #' An s4 generic
 #'
 #' @export
-#' @aliases multi,ANY,ANY-method
 setGeneric("multi", function(x, y) {
   x
 })

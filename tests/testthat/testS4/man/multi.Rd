@@ -2,7 +2,6 @@
 % Please edit documentation in R/multi.R
 \name{multi}
 \alias{multi}
-\alias{multi,ANY,ANY-method}
 \alias{multi,numeric,ANY-method}
 \alias{multi,numeric,integer-method}
 \title{An s4 generic}

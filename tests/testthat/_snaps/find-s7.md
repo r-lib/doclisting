@@ -14,7 +14,7 @@
       cat(methods_list("multi"))
     Output
       \itemize{
-        \item \code{\link[=multi-2]{character,integer}}
+        \item \code{\link[=multi-character-integer-method]{character,integer}}
         \item \code{integer,character}
       }
 
