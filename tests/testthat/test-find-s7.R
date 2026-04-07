@@ -3,7 +3,7 @@ test_that("methods_find finds S7 methods", {
   result <- methods_find("uni")
   expect_equal(result$class, c("character", "integer"))
   expect_equal(result$package, rep("testS7", 2))
-  expect_equal(result$topic, c("uni-2", "uni"))
+  expect_equal(result$topic, c("uni-character-method", "uni"))
 })
 
 test_that("methods_find finds S7 multi-dispatch methods", {

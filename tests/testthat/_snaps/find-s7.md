@@ -4,7 +4,7 @@
       cat(methods_list("uni"))
     Output
       \itemize{
-        \item \code{\link[=uni-2]{character}}
+        \item \code{\link[=uni-character-method]{character}}
         \item \code{integer}
       }
 
