@@ -24,16 +24,7 @@ methods_find_s7 <- function(generic, name) {
 
   # S7 method topic aliases follow S4 convention: generic,class-method.
   method <- paste0(name, ",", class, "-method")
-
-  package <- vapply(
-    methods,
-    function(m) {
-      pkg <- utils::packageName(environment(m$method))
-      if (is.null(pkg)) NA_character_ else pkg
-    },
-    character(1)
-  )
-
+  package <- vapply(methods, \(m) fn_package(m$method), character(1))
   topic <- help_topic(method, package)
 
   data.frame(
