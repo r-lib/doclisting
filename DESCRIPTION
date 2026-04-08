@@ -1,12 +1,12 @@
 Package: doclisting
-Title: Tools to List Functions in Documentation
+Title: List Functions in Documentation
 Version: 0.0.0.9000
 Authors@R: c(
     person("Hadley", "Wickham", , "hadley@posit.co", role = c("aut", "cre")),
     person("Posit Software, PBC", role = c("cph", "fnd"))
   )
-Description: Automatically list related functions in documentation,
-    particularly aimed at documenting generics.
+Description: List related functions in documentation, particularly focussing
+    making it easier to document S3 and S7 generics.
 License: MIT + file LICENSE
 Imports:
     methods
