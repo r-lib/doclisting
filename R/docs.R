@@ -2,18 +2,18 @@
 #'
 #' @description
 #' Generate `Rd` markup to list methods for a generic function.
-#' `methods_list()` generates an bulleted list and `methods_inline()`
+#' `methods_list()` generates a bulleted list and `methods_inline()`
 #' produces a comma-separated list, suitable for inline use.
 #'
-#' You can use them in roxygen2 document in two ways:
+#' You can use them in roxygen2 documentation in two ways:
 #'
 #' * Compute methods when package is documented:
-#'   `` `r doclist::methods_list("generic")` ``
-#'   You'll need to include `doclist` in Suggests.
+#'   `` `r doclisting::methods_list("generic")` ``
+#'   You'll need to include `doclisting` in Suggests.
 #'
 #' * Compute methods when documentation is rendered:
-#'   `` `Rd doclist::methods_list("generic")` ``
-#'   You'll need to include `doclist` in Imports.
+#'   `` `Rd doclisting::methods_list("generic")` ``
+#'   You'll need to include `doclisting` in Imports.
 #'
 #' Methods from the same package as the generic are linked without a package
 #' qualifier; methods from other packages include the package name.

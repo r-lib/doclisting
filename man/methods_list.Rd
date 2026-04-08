@@ -21,17 +21,17 @@ found.
 }
 \description{
 Generate \code{Rd} markup to list methods for a generic function.
-\code{methods_list()} generates an bulleted list and \code{methods_inline()}
+\code{methods_list()} generates a bulleted list and \code{methods_inline()}
 produces a comma-separated list, suitable for inline use.
 
-You can use them in roxygen2 document in two ways:
+You can use them in roxygen2 documentation in two ways:
 \itemize{
 \item Compute methods when package is documented:
-\code{`r doclist::methods_list("generic")`}
-You'll need to include \code{doclist} in Suggests.
+\code{`r doclisting::methods_list("generic")`}
+You'll need to include \code{doclisting} in Suggests.
 \item Compute methods when documentation is rendered:
-\code{`Rd doclist::methods_list("generic")`}
-You'll need to include \code{doclist} in Imports.
+\code{`Rd doclisting::methods_list("generic")`}
+You'll need to include \code{doclisting} in Imports.
 }
 
 Methods from the same package as the generic are linked without a package

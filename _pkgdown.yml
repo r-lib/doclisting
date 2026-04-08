@@ -2,3 +2,8 @@ url: https://doclisting.r-lib.org
 template:
   package: tidytemplate
   bootstrap: 5
+
+reference:
+- title: List methods
+  contents:
+  - methods_list

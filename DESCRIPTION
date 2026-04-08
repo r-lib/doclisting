@@ -7,8 +7,9 @@ Authors@R: c(
     person("Posit Software, PBC", role = c("cph", "fnd"),
            comment = c(ROR = "https://ror.org/03wc8by49"))
   )
-Description: List related functions in documentation, particularly
-    focussing making it easier to document S3 and S7 generics.
+Description: Generate 'Rd' markup to list methods for a generic function.
+    Makes it easier to document S3, S4, and S7 generics by automatically
+    finding and linking to method documentation.
 License: MIT + file LICENSE
 URL: https://github.com/r-lib/doclisting, https://doclisting.r-lib.org
 BugReports: https://github.com/r-lib/doclisting/issues
