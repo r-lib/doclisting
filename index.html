@@ -5,16 +5,16 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Tools to List Functions in Documentation • doclisting</title>
+<title>List Functions in Documentation • doclisting</title>
 <script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/Source_Sans_Pro-0.4.10/font.css" rel="stylesheet">
 <link href="deps/Source_Code_Pro-0.4.10/font.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Tools to List Functions in Documentation">
-<meta name="description" content="Automatically list related functions in documentation, particularly aimed at documenting generics.">
-<meta property="og:description" content="Automatically list related functions in documentation, particularly aimed at documenting generics.">
+<script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="List Functions in Documentation">
+<meta name="description" content="Generate Rd markup to list methods for a generic function. Makes it easier to document S3, S4, and S7 generics by automatically finding and linking to method documentation.">
+<meta property="og:description" content="Generate Rd markup to list methods for a generic function. Makes it easier to document S3, S4, and S7 generics by automatically finding and linking to method documentation.">
 </head>
 <body>
     <a href="#container" class="visually-hidden-focusable">Skip to content</a>
@@ -34,6 +34,7 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -56,15 +57,18 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of doclisting from GitHub:</p>
+<p>You can install the released version from CRAN:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"doclisting"</span><span class="op">)</span></span></code></pre></div>
+<p>Or the development version from GitHub:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"hadley/doclisting"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
 <p><code><a href="reference/methods_list.html">methods_list()</a></code> and <code><a href="reference/methods_list.html">methods_inline()</a></code> generate Rd markup listing all methods for a generic:</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="fu">doclisting</span><span class="fu">::</span><span class="fu"><a href="reference/methods_list.html">methods_list</a></span><span class="op">(</span><span class="st">"mean"</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="co">#&gt; \itemize{</span></span>
 <span><span class="co">#&gt;   \item \code{\link[=Dates]{Date}}</span></span>
@@ -82,16 +86,16 @@
 <ul>
 <li>
 <p>Compute methods when the package is documented (i.e. at <code>devtools::document()</code> time), use inline R code in your roxygen comment:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="co">#' @description</span></span>
-<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="co">#' `r doclisting::methods_list("my_generic")`</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">#' @description</span></span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#' `r doclisting::methods_list("my_generic")`</span></span></code></pre></div>
 <p>You’ll need to add <code>doclisting</code> to <code>Suggests</code>.</p>
 </li>
 <li>
 <p>Compute methods when documentation is rendered (i.e. at <code>?</code> time), use an Rd code block:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="co">#' @description</span></span>
-<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="co">#' `Rd doclisting::methods_list("my_generic")`</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="co">#' @description</span></span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="co">#' `Rd doclisting::methods_list("my_generic")`</span></span></code></pre></div>
 <p>You’ll need to add <code>doclisting</code> to <code>Imports</code> and add dummy call to <code><a href="reference/methods_list.html">methods_list()</a></code> to eliminate the R CMD check note:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ignore_unused_imports</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="op">)</span> <span class="op">{</span></span>
 <span>    <span class="fu">doclisting</span><span class="fu">::</span><span class="va"><a href="reference/methods_list.html">methods_list</a></span></span>
 <span><span class="op">}</span></span></code></pre></div>
@@ -127,9 +131,9 @@
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://hadley.nz" class="external-link">Hadley Wickham</a> <br><small class="roles"> Author, maintainer </small>   </li>
+<a href="https://hadley.nz" class="external-link">Hadley Wickham</a> <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-4757-117X" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 <li>
-<a href="https://www.posit.co" class="external-link"><img src="https://www.tidyverse.org/posit-logo.svg" alt="Posit" height="16" width="62" style="margin-bottom: 3px;"></a> <br><small class="roles"> Copyright holder, funder </small>   </li>
+<a href="https://www.posit.co" class="external-link"><img src="https://www.tidyverse.org/posit-logo.svg" alt="Posit" height="16" width="62" style="margin-bottom: 3px;"></a> <br><small class="roles"> Copyright holder, funder </small>  <a href="https://ror.org/https://ror.org/03wc8by49" class="external-link"><img src="https://raw.githubusercontent.com/ror-community/ror-logos/main/ror-icon-rgb.svg" class="ror" alt="ROR"></a> </li>
 </ul>
 </div>
 

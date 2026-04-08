@@ -1,6 +1,6 @@
 # Package index
 
-## All functions
+## List methods
 
 - [`methods_list()`](https://doclisting.r-lib.org/reference/methods_list.md)
   [`methods_inline()`](https://doclisting.r-lib.org/reference/methods_list.md)
