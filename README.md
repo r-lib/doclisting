@@ -17,7 +17,13 @@ clearly labeled.
 
 ## Installation
 
-You can install the development version of doclisting from GitHub:
+You can install the released version from CRAN:
+
+``` r
+install.packages("doclisting")
+```
+
+Or the development version from GitHub:
 
 ``` r
 pak::pak("hadley/doclisting")
