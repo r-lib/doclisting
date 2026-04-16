@@ -1,6 +1,6 @@
 Package: doclisting
 Title: List Functions in Documentation
-Version: 0.1.0
+Version: 0.1.0.9000
 Authors@R: c(
     person("Hadley", "Wickham", , "hadley@posit.co", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-4757-117X")),
