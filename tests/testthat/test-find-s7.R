@@ -1,9 +1,12 @@
 test_that("methods_find finds S7 methods", {
   local_load_all("testS7")
   result <- methods_find("uni")
-  expect_equal(result$class, c("character", "integer"))
-  expect_equal(result$package, rep("testS7", 2))
-  expect_equal(result$topic, c("uni-character-method", "uni"))
+  expect_equal(result$class, c("character", "integer", "testS7::foo"))
+  expect_equal(result$package, rep("testS7", 3))
+  expect_equal(
+    result$topic,
+    c("uni-character-method", "uni", "uni-testS7-foo-method")
+  )
 })
 
 test_that("methods_find finds S7 multi-dispatch methods", {
