@@ -18,7 +18,7 @@ Depends:
 Imports:
     methods
 Suggests: 
-    pkgload,
+    pkgload (>= 1.5.2),
     S7,
     testthat (>= 3.0.0)
 Config/Needs/website: tidyverse/tidytemplate
